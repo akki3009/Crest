@@ -1,0 +1,141 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444;
+}
+
+a {
+  color: #428bca;
+}
+
+a:hover {
+  color: #9eccf4;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, .font-primary {
+  font-family: "Raleway", sans-serif;
+}
+
+#header {
+  position: relative;
+  height: 60px;
+  transition: all 0.5s;
+  transition: all 0.5s;
+  padding: 10px 0;
+  background: #92a8d1;
+  z-index: 997;
+  overflow: hidden;
+}
+
+#header.header-scrolled {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo h1 {
+  font-size: 20px;
+  float: right;
+  margin: 0;
+  padding: 10px 0;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#header .logo h1 a, #header .logo h1 a:hover {
+  color: #1c5c93;
+  text-decoration: none;
+}
+
+.nav-menu, .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu>ul>li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+  color: white;
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  color: #FFFFFF;
+  padding: 12px 15px;
+  transition: 0.3s;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.nav-menu a:hover, .nav-menu .active>a, .nav-menu li:hover>a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.cat {
+  margin-top: 60px;
+}
+
+.cate .button {
+  padding: 15px 32px;
+  text-align: center;
+}
+
+#searched {
+  padding: 12px 10px 12px 10px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  float: right;
+}
+
+select #status {
+  padding: 12px 10px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float: right;
+}
+
+.table th {
+  background-color: #5c768d;
+  padding: 0;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.prod {
+  margin-top: 60px;
+}
+
+.prod .button {
+  padding: 15px 32px;
+  text-align: center;
+}
+
+#search_product {
+  padding: 12px 10px 12px 10px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  float: right;
+}
+
+select #prod_status {
+  padding: 12px 10px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float: right;
+}
+/* h2 #head {
+  height: 50px;
+  padding: 10px 0;
+  background: lightblue;
+  text-align: center;
+} */
