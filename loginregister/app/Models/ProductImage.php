@@ -9,8 +9,4 @@ class ProductImage extends Model
     protected $table = 'product_images';
     public $timestamps = null;
     protected $fillable=['productid','imagename','istatus'];
-
-    // public function product(){
-    //     return $this->belongsTo(Product::class);
-    // }
 }

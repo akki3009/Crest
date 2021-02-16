@@ -27,15 +27,15 @@
 
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-
+            </ul>
+            <ul class="nav justify-content-end">
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('logout') }}" class="nav-link">Logout</a>
                 </li>
             </ul>
-
         </nav>
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -93,8 +93,8 @@
 
         <div class="content-wrapper">
 
-            <div class="content-header">
-                <div class="container-fluid">
+            <div>
+                <div class="container">
                     @yield('content')
                 </div>
             </div>
@@ -112,6 +112,41 @@
         <aside class="control-sidebar control-sidebar-dark">
         </aside>
     </div>
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+
+    </script>
+    
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    
+    <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
+    
+    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+    
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+    
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+    
+    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
+    
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+    
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    
+    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+    
+    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    
+    <script src="{{ asset('dist/js/demo.js') }}"></script>
     @yield('jscontent')
 </body>
 

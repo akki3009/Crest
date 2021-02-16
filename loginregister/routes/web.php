@@ -36,13 +36,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/deletePro/{id}', 'ProductController@destroy')->name('deletePro');
     Route::get('active/{id}/{imgid}','ProductController@setactive')->name('activeimage');
     Route::get('delimage/{imgid}','ProductController@delimage')->name('deleteimage');
+    Route::post('/prodSearch','ProductController@show')->name('prodSearch');
 
 });
-// Route::group(['prefix' => '', 'middleware' => ['admin']], function () {
-//     //categories route
-//     Route::get('/category', 'CategoryController@index')->name('Categoryform');
-//     Route::post('/addcategory', 'CategoryController@store')->name('addcategory');
-//     Route::post('/update/{cid}', 'CategoryController@update')->name('updateform');
-//     Route::get('/edit/{cid}', 'CategoryController@edit')->name('update');
-//     Route::get('/deleterecords/{cid}', 'CategoryController@destroy');
-// });

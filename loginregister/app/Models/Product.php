@@ -10,8 +10,8 @@ class Product extends Model
 
     protected $fillable=['pname','cname','productcode','price','saleprice','quantity','porder','pstatus'];
 
-    public function productImage(){
-        return $this->belongsTo(ProductImage::class);
+    public function imagenames(){
+        return $this->hasMany(ProductImage::class,'productid');
     }
     public function categoryname()
     {
