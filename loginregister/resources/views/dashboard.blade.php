@@ -6,21 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 3 | Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet"
-        href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
-
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    @yield('css')
+  </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -72,7 +61,7 @@
 
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('c_index') }}" class="nav-link">
+                                    <a href="{{ route('categoryindex') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Category</p>
                                     </a>
@@ -112,42 +101,11 @@
         <aside class="control-sidebar control-sidebar-dark">
         </aside>
     </div>
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-
-    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-    
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-
-    </script>
-    
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    
-    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
-    
-    <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
-    
-    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-    
-    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-    
-    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
-    </script>
-    
-    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
-    
-    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-    
-    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-    
-    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-    
-    <script src="{{ asset('dist/js/demo.js') }}"></script>
     @yield('jscontent')
+    @stack('scripts')
 </body>
 
 </html>
+
+{{-- https://laravel-news.com/creating-helpers --}}
+{{-- https://www.tutsmake.com/laravel-create-custom-helper-and-functions-with-example/ --}}

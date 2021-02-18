@@ -20,22 +20,21 @@ Route::post('/login/data', 'LoginController@authenticate')->name('logindata');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/c_index', 'CategoryController@index')->name('c_index');
-    Route::get('/addcategory', 'CategoryController@create')->name('addcategory');
-    Route::post('/addcategory', 'CategoryController@store')->name('addcategory');
+    Route::get('/categoryindex', 'CategoryController@index')->name('categoryindex');
+    Route::get('/category', 'CategoryController@create')->name('category');
+    Route::post('/category/add', 'CategoryController@store')->name('addcategory');
     Route::get('/edit/{id}', 'CategoryController@edit')->name('update');
-    Route::post('/update/{id}', 'CategoryController@update')->name('updateform');
+    Route::post('/updateCategory/{id}', 'CategoryController@update')->name('updateCategory');
     Route::get('/delete/{id}', 'CategoryController@destroy')->name('delete');
     Route::get('/search_val', 'CategoryController@catSearch');
 
-    Route::get('/addproduct', 'ProductController@create')->name('addproduct');
-    Route::post('/addproduct', 'ProductController@store')->name('addproduct');
+    Route::get('/product', 'ProductController@create')->name('product');
+    Route::post('/product/add', 'ProductController@store')->name('addproduct');
     Route::get('/productindex', 'ProductController@index')->name('productindex');
-    Route::get('/editPro/{id}', 'ProductController@edit')->name('update');
+    Route::get('/editproduct/{id}', 'ProductController@edit')->name('update');
     Route::post('/updateform/{id}', 'ProductController@update')->name('updateform');
-    Route::get('/deletePro/{id}', 'ProductController@destroy')->name('deletePro');
+    Route::get('/deleteproduct/{id}', 'ProductController@destroy')->name('deleteproduct');
     Route::get('active/{id}/{imgid}','ProductController@setactive')->name('activeimage');
     Route::get('delimage/{imgid}','ProductController@delimage')->name('deleteimage');
-    Route::post('/prodSearch','ProductController@show')->name('prodSearch');
-
+    Route::post('/productsearch','ProductController@show')->name('productsearch');
 });

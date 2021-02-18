@@ -12,7 +12,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        return view('categorylist', ['category' => Category::all()]);
+        $cat = Category::all();
+        // dd($cat);
+        return view('categorylist', ['category' => $cat]);
     }
 
     public function create()
@@ -25,6 +27,7 @@ class CategoryController extends Controller
         $request->validate([
             'cname' => 'required|unique:categorys',
             'cimage' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'cimage' => 'dimensions:max_width=1024,max_height=720',
             'corder' => 'required',
             'cstatus' => 'required'
         ]);
@@ -45,22 +48,26 @@ class CategoryController extends Controller
             $cat->cimage = '';
         }
         $cat->save();
-        return redirect('/c_index')->with('success', 'Category Sucessfully Added');
+        return redirect('/categoryindex')->with('success', 'Category Sucessfully Added');
     }
 
     public function edit($id)
     {
+
         $cat = Category::find($id);
+        // dd($cat);
         return view('categoryadd', ['editcate' => $cat]);
     }
     public function update(Request $request, $id)
     {
+        // dd($id);
         $request->validate([
             'cname' => 'required',
             'corder' => 'required',
             'cstatus' => 'required'
         ]);
         $image = $request->cimage;
+        // dd($image);
         if ($image != null) {
             $file = $request->file('cimage');
             $extention = $file->getClientOriginalExtension();
@@ -80,7 +87,7 @@ class CategoryController extends Controller
                 "cstatus" => $request->cstatus
             ));
         }
-        return redirect('/c_index')->with('success', 'Category Sucessfully Updated');
+        return redirect('/categoryindex')->with('success', 'Category Sucessfully Updated');
     }
 
     public function destroy($id)
@@ -89,7 +96,7 @@ class CategoryController extends Controller
         if (file_exists(public_path('asset/img/Categoryimage/' . $del->cimage))) {
             unlink(public_path('asset/img/Categoryimage/' . $del->cimage));
             $del->delete();
-            return redirect('/c_index')->with('error', 'Category Sucessfully Deleted');
+            return redirect('/categoryindex')->with('error', 'Category Sucessfully Deleted');
         }
     }
 
@@ -107,10 +114,10 @@ class CategoryController extends Controller
                     '<td><img src='.url('asset/img/Categoryimage/'.$value->cimage) .' width="70px" height="70px"></td>'.
                     '<td>'.$value->corder.'</td>'.
                     '<td>'.$value->cstatus.'</td>'.
-                    '<td>'.$value->created_at.'</td>'.
-                    '<td>'.$value->updated_at.'</td>'.
-                    '<td><a href="edit/$value->id" class="btn btn-success">Edit</a></td>'.
-                    '<td><a href="delete/{{ $value->id }}" class="btn btn-danger">Delete</a></td>'.
+                    '<td>'.$value->created_at->format('d/m/Y').'</td>'.
+                    '<td>'.$value->updated_at->format('d/m/Y').'</td>'.
+                    '<td><a class="btn btn-success" href='."edit/$value->id".'>Edit</a></td>'.
+                    '<td><a class="btn btn-danger" href='."delete/$value->id".'>Delete</a></td>'.
                     '</tr>';
                 }
                 return Response($output);

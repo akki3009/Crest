@@ -14,10 +14,10 @@ class AuthenticateAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$guard ='admin')
+    public function handle($request, Closure $next)
     {
         // dd($guard);
-        if(Auth::guard($guard)->guest()){
+        if(Auth::guard('admin')->guest()){
             return redirect(route('login'));
         }
         return $next($request);

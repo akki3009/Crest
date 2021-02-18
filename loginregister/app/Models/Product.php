@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'products';
-
     protected $fillable=['pname','cname','productcode','price','saleprice','quantity','porder','pstatus'];
 
     public function imagenames(){

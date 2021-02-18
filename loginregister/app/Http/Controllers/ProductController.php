@@ -87,8 +87,11 @@ class ProductController extends Controller
             ->select('categorys.cname as catid', 'categorys.id', 'products.*', 'product_images.*')
             ->where('product_images.istatus', '=', 'Active');
         if ($request->prod_search) {
-            $prodData = $query->where('products.pname', 'like', '%' . $request->prod_search . '%')
-                ->get();
+            $search = $request->prod_search;
+            $prodData = $query
+                ->where('products.pname', 'like', '%' . $search . '%')
+                ->where('categorys.cname','like','%'.$search.'%')
+                ->get();    
         } else if ($request->start_price && $request->end_price) {
             $prodData = $query->whereBetween('products.price', [$request->start_price, $request->end_price])
                 ->get();
@@ -201,5 +204,4 @@ class ProductController extends Controller
         Product::where('id', $id)->delete();
         return redirect('/productindex')->with('error', 'Product Sucessfully Deleted');
     }
-
 }
