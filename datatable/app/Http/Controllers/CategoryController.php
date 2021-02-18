@@ -51,8 +51,8 @@ class CategoryController extends Controller
                 $nest['corder'] = $row->corder;
                 $nest['cstatus']    = $row->cstatus;
                 $nest['cimage']    = '<img src='.url('asset/img/Categoryimage/'.$row->cimage).' width="80px" height="70px">';
-                $nest['created_at']    = $row->created_at;
-                $nest['updated_at']    = $row->updated_at;
+                $nest['created_at']    = ($row->created_at->format('d/m/Y'));
+                $nest['updated_at']    = ($row->updated_at->format('d/m/Y'));
                 $data[] = $nest;
             }
         }
